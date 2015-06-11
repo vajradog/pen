@@ -37,6 +37,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def mercury_update
+    article = Article.find(params[:id])
+    article.title = params[:content][:article_title][:value]
+    article.body = params[:content][:article_body][:value]
+    article.save!
+    render text: " "
+  end
+
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
